@@ -32,8 +32,9 @@ void Student::setGrades(int *grades) {
 }
 
 istream &operator>>(istream &is, Student &st) {
-    cout << "Enter a fio" << endl;
-    is >> st.fio;
+    is.ignore();
+    cout << "Enter a fio" << endl << flush;
+    getline(is, st.fio, '\n');
     cout << "Enter a course number" << endl;
     is >> st.courseNumber;
     int grades[st.SIZE];
@@ -44,6 +45,11 @@ istream &operator>>(istream &is, Student &st) {
         grades[++k] = grade;
     }
     st.setGrades(grades);
+    auto gradesReal = st.getGrade();
+    for (int i = 0; i < 5; ++i) {
+        st.middleGrade += gradesReal[i];
+    }
+    st.middleGrade /= 5.0;
     return is;
 }
 
