@@ -17,7 +17,10 @@ public:
     StudentList &add(Student &st);
     StudentList &remove(int index);
     StudentList &showGoodStudents();
+
     StudentList();
+    ~StudentList();
+
     Student **getData() const;
     int getSize() const;
     void print();

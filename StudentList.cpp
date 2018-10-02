@@ -33,7 +33,7 @@ StudentList &StudentList::add(Student &st) {
 
 void StudentList::print() {
     for (int i = 0; i < this->size; ++i) {
-        cout << *this->data[i] << endl;
+        cout << *this->data[i];
     }
 }
 
@@ -76,6 +76,13 @@ StudentList &StudentList::showGoodStudents() {
         }
     }
     return *this;
+}
+
+StudentList::~StudentList() {
+    for (int i = 0; i < this->size; ++i) {
+        delete this->data[i];
+    }
+    this->size = 0;
 }
 
 
