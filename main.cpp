@@ -12,13 +12,13 @@ int main() {
     st->setGrades(grades);
     cout << *st << endl;
 
-    auto *st2 = new Student("test", 2);
+    auto *st2 = new Student("test testing 2", 2);
     int grades2[5] = {5, 4, 5, 4, 5};
     st2->setGrades(grades2);
 
     auto *l = new StudentList();
-    l->add(*st).add(*st2).remove(0);
-
+    l->add(*st).add(*st2).showGoodStudents();
+    cout << "---------" << endl;
     l->print();
 
     delete st;

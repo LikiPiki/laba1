@@ -61,5 +61,22 @@ StudentList &StudentList::remove(int index) {
     return *this;
 }
 
+StudentList &StudentList::showGoodStudents() {
+    for (int i = 0; i < this->size; ++i) {
+        auto current = this->data[i];
+        bool fl = true;
+        for (int j = 0; j < 5; ++j) {
+            if ((current->getGrade()[j] != 4) && (current->getGrade()[j] != 5)) {
+                fl = false;
+                break;
+            }
+        }
+        if (fl) {
+            cout << current->fio << " " << current->courseNumber << endl;
+        }
+    }
+    return *this;
+}
+
 
 

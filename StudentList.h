@@ -16,6 +16,7 @@ private:
 public:
     StudentList &add(Student &st);
     StudentList &remove(int index);
+    StudentList &showGoodStudents();
     StudentList();
     Student **getData() const;
     int getSize() const;
