@@ -6,7 +6,7 @@
 using namespace std;
 
 void menu() {
-    const int COUNT = 10;
+    const int COUNT = 1;
 
     auto *list = new StudentList();
     bool fl = true;
@@ -54,21 +54,5 @@ int main() {
 
     menu();
 
-    auto *st = new Student("test", 2);
-    int grades[5] = {3, 4, 5, 2, 4};
-    st->setGrades(grades);
-    cout << *st << endl;
-
-    auto *st2 = new Student("test testing 2", 2);
-    int grades2[5] = {5, 4, 5, 4, 5};
-    st2->setGrades(grades2);
-
-    auto *l = new StudentList();
-    l->add(*st).add(*st2).showGoodStudents();
-    cout << "---------" << endl;
-    l->print();
-
-    delete st;
-    delete st2;
     return 0;
 }

@@ -13,6 +13,7 @@ int StudentList::getSize() const {
 }
 
 StudentList::StudentList() {
+    cout << "Student list constructor" << endl;
     this->size = 0;
 }
 
@@ -79,6 +80,7 @@ StudentList &StudentList::showGoodStudents() {
 }
 
 StudentList::~StudentList() {
+    cout << "StudentList destructor" << endl;
     for (int i = 0; i < this->size; ++i) {
         delete this->data[i];
     }

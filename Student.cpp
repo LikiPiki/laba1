@@ -10,6 +10,7 @@
 using namespace std;
 
 Student::Student(string fio, int courseNumber) {
+    cout << "Constructor student" << endl;
     this->fio = fio;
     this->courseNumber = courseNumber;
     this->middleGrade = 0;
@@ -66,9 +67,12 @@ void Student::showGrades() {
     cout << endl;
 }
 
-Student::Student() {}
+Student::Student() {
+    cout << "Constructor student" << endl;
+}
 
 Student::~Student() {
+    cout << "Destructor student" << endl;
     this->fio = "";
     int defaultGrades[5] = {0, 0, 0, 0, 0};
     this->setGrades(defaultGrades);
@@ -83,4 +87,3 @@ const int *Student::getGrade() const {
 double Student::getMiddleGrade() const {
     return middleGrade;
 }
-
