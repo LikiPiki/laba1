@@ -6,7 +6,7 @@
 using namespace std;
 
 void menu() {
-    const int COUNT = 1;
+    const int COUNT = 10;
 
     auto *list = new StudentList();
     bool fl = true;

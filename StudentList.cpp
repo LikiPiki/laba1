@@ -19,15 +19,12 @@ StudentList::StudentList() {
 
 StudentList &StudentList::add(Student &st) {
     this->size++;
-    auto **copy = new Student*[this->size - 1];
+    auto **copy = new Student*[this->size];
     for (int i = 0; i < this->size - 1; ++i) {
         copy[i] = this->data[i];
     }
-    this->data = new Student*[this->size];
-    for (int i = 0; i < this->size - 1; ++i) {
-        this->data[i] = copy[i];
-    }
-    this->data[this->size - 1] = &st;
+    copy[this->size - 1] = &st;
+    this->data = copy;
     delete []copy;
     return *this;
 }
