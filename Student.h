@@ -13,10 +13,6 @@ using namespace std;
 
 class Student {
 public:
-    static const int SIZE = 5;
-
-    string fio;
-    int courseNumber;
 
     Student();
     Student(string fio, int courseNumber);
@@ -35,7 +31,18 @@ public:
     friend istream& operator>>(istream& is, Student& st);
     friend ostream& operator<<(ostream& of, Student& st);
 
+    const string &getFio() const;
+
+    void setFio(const string &fio);
+
+    int getCourseNumber() const;
+
+    void setCourseNumber(int courseNumber);
+
 private:
+    int courseNumber;
+    static const int SIZE = 5;
+    string fio;
     double middleGrade;
     int grade[5];
 };

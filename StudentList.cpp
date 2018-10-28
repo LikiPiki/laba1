@@ -73,7 +73,7 @@ StudentList &StudentList::showGoodStudents() {
             }
         }
         if (fl) {
-            cout << current->fio << " " << current->courseNumber << endl;
+            cout << current->getFio() << " " << current->getCourseNumber() << endl;
         }
     }
     return *this;

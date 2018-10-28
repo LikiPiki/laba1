@@ -87,3 +87,19 @@ const int *Student::getGrade() const {
 double Student::getMiddleGrade() const {
     return middleGrade;
 }
+
+const string &Student::getFio() const {
+    return fio;
+}
+
+void Student::setFio(const string &fio) {
+    Student::fio = fio;
+}
+
+int Student::getCourseNumber() const {
+    return courseNumber;
+}
+
+void Student::setCourseNumber(int courseNumber) {
+    Student::courseNumber = courseNumber;
+}
