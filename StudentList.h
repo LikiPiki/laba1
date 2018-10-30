@@ -16,7 +16,8 @@ private:
 public:
     StudentList &add(Student &st);
     StudentList &remove(int index);
-    StudentList &showGoodStudents();
+    StudentList *findGoodStudents();
+    void showGoodStudents();
 
     StudentList();
     ~StudentList();

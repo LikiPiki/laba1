@@ -37,7 +37,8 @@ void StudentList::print() {
 
 StudentList &StudentList::remove(int index) {
     if (index >= this->size || index < 0) {
-        cout << "Cant delete, try onother index" << endl;
+        cout << "Cant delete, try another index" << endl;
+        return *this;
     } else {
         auto **copy = new Student*[this->size];
         for (int i = 0; i < this->size; ++i) {
@@ -59,21 +60,17 @@ StudentList &StudentList::remove(int index) {
     return *this;
 }
 
-StudentList &StudentList::showGoodStudents() {
+
+
+StudentList *StudentList::findGoodStudents() {
+    auto *st = new StudentList();
     for (int i = 0; i < this->size; ++i) {
         auto current = this->data[i];
-        bool fl = true;
-        for (int j = 0; j < 5; ++j) {
-            if ((current->getGrade()[j] != 4) && (current->getGrade()[j] != 5)) {
-                fl = false;
-                break;
-            }
-        }
-        if (fl) {
-            cout << current->getFio() << " " << current->getCourseNumber() << endl;
+        if (current->isGoodStudent()) {
+            st->add(*current);
         }
     }
-    return *this;
+    return st;
 }
 
 StudentList::~StudentList() {
@@ -82,6 +79,12 @@ StudentList::~StudentList() {
         delete this->data[i];
     }
     this->size = 0;
+}
+
+void StudentList::showGoodStudents() {
+    auto *st = this->findGoodStudents();
+    st->print();
+    delete st;
 }
 
 

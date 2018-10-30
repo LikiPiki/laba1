@@ -14,6 +14,8 @@ using namespace std;
 class Student {
 public:
 
+    static const int SIZE = 5;
+
     Student();
     Student(string fio, int courseNumber);
 
@@ -39,9 +41,10 @@ public:
 
     void setCourseNumber(int courseNumber);
 
+    bool isGoodStudent();
+
 private:
     int courseNumber;
-    static const int SIZE = 5;
     string fio;
     double middleGrade;
     int grade[5];

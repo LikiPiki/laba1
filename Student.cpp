@@ -47,7 +47,7 @@ istream &operator>>(istream &is, Student &st) {
     }
     st.setGrades(grades);
     auto gradesReal = st.getGrade();
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < st.SIZE; ++i) {
         st.middleGrade += gradesReal[i];
     }
     st.middleGrade /= 5.0;
@@ -74,7 +74,7 @@ Student::Student() {
 Student::~Student() {
     cout << "Destructor student" << endl;
     this->fio = "";
-    int defaultGrades[5] = {0, 0, 0, 0, 0};
+    int defaultGrades[SIZE] = {0, 0, 0, 0, 0};
     this->setGrades(defaultGrades);
     this->courseNumber = 0;
     this->middleGrade = 0;
@@ -102,4 +102,15 @@ int Student::getCourseNumber() const {
 
 void Student::setCourseNumber(int courseNumber) {
     Student::courseNumber = courseNumber;
+}
+
+bool Student::isGoodStudent() {
+    bool fl = true;
+    for (int j = 0; j < SIZE; ++j) {
+        if ((this->grade[j] != 4) && (this->grade[j] != 5)) {
+            fl = false;
+            break;
+        }
+    }
+    return fl;
 }
